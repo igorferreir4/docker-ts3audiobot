@@ -70,8 +70,8 @@ jobs:
               --cache-to=type=registry,ref=$CACHE_REPO:$CACHE_TAG,mode=max .
 
   build-multi-arch:
-    executor: docker-machine
-    resource_class: medium
+    executor: docker-docker
+    # resource_class: medium
     environment:
       CACHE_REPO: igorferreir4/buildcaches
       CACHE_AMD64: ts3audiobot-0.13.0-alpha41-amd64
@@ -82,6 +82,7 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - setup_remote_docker
       - setup-qemu
       - run:
           name: Build docker image
