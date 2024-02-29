@@ -73,8 +73,8 @@ jobs:
               --cache-to=type=registry,ref=$CACHE_REPO:$CACHE_TAG,mode=max .
 
   build-multi-arch:
-    executor: docker-machine
-    resource_class: large
+    executor: docker-docker
+    # resource_class: large
     environment:
       CACHE_REPO: igorferreir4/buildcaches
       CACHE_AMD64: ts3audiobot-0.13.0-alpha41-amd64
@@ -98,9 +98,6 @@ jobs:
                   --cache-from="$CACHE_REPO:$CACHE_AMD64" \
                   --cache-from="$CACHE_REPO:$CACHE_ARM64" \
                   --push --platform=linux/amd64,linux/arm64/v8 $TAGS .
-      - readme/update:
-          file: ~/project/src/README.md
-          repository: $IMAGE_REPO
 
   deploy:
     executor: docker-docker
