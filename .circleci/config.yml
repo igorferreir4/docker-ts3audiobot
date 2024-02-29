@@ -34,7 +34,7 @@ jobs:
       CACHE_REPO: igorferreir4/buildcaches
       CACHE_TAG: ts3audiobot-0.12.2-amd64
       CACHE_TAG_OLD: ts3audiobot-0.12.2-amd64
-    working_directory: ~/project/0.12.2
+    working_directory: ~/project/src/0.12.2
     steps:
       - checkout:
           path: ~/project
@@ -55,7 +55,7 @@ jobs:
       CACHE_REPO: igorferreir4/buildcaches
       CACHE_TAG: ts3audiobot-0.12.2-arm64
       CACHE_TAG_OLD: ts3audiobot-0.12.2-arm64
-    working_directory: ~/project/0.12.2
+    working_directory: ~/project/src/0.12.2
     steps:
       - checkout:
           path: ~/project
@@ -76,9 +76,9 @@ jobs:
       CACHE_REPO: igorferreir4/buildcaches
       CACHE_AMD64: ts3audiobot-0.12.2-amd64
       CACHE_ARM64: ts3audiobot-0.12.2-arm64
-      IMAGE_REPO: igorferreir4/registrator
+      IMAGE_REPO: igorferreir4/ts3audiobot
       IMAGE_TAGS: 0.12.2,stable
-    working_directory: ~/project/0.12.2
+    working_directory: ~/project/src/0.12.2
     steps:
       - checkout:
           path: ~/project
