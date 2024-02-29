@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  readme: gofunky/readmyhub@1.2.2
+
 executors:
   docker-docker:
     docker:
@@ -95,6 +98,9 @@ jobs:
                   --cache-from="$CACHE_REPO:$CACHE_AMD64" \
                   --cache-from="$CACHE_REPO:$CACHE_ARM64" \
                   --push --platform=linux/amd64,linux/arm64/v8 $TAGS .
+      - readme/update:
+          file: ~/project/src/README.md
+          repository: $IMAGE_REPO
 
   deploy:
     executor: docker-docker
